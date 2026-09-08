@@ -99,4 +99,10 @@ public partial class ExamplePlugin : BasePlugin
     {
         Logger<ExamplePlugin>.Info($"{player.Data.PlayerName} text: {text} number: {number} testPlayer: {testPlayer.NetId}");
     }
+
+    [MethodRpc((uint) CustomRpcCalls.TargetRpcExample, nameof(target))]
+    public static void RpcSayTo(PlayerControl player, PlayerControl target, string text)
+    {
+        Logger<ExamplePlugin>.Info($"{player.Data.PlayerName} text: {text} sentOnlyTo: {target.NetId}");
+    }
 }
