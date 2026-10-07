@@ -82,7 +82,7 @@ public class MethodRpc : UnsafeCustomRpc
             {
                 throw new ArgumentException("Target Client parameter isn't part of method rpc signature.", nameof(method));
             }
-            if (!typeof(InnerNetObject).IsAssignableFrom(param.ParameterType) ||
+            if (!typeof(InnerNetObject).IsAssignableFrom(param.ParameterType) &&
                 !typeof(int).IsAssignableFrom(param.ParameterType))
             {
                 throw new ArgumentException("Target Client parameter has to be an InnerNetObject or int", nameof(method));
